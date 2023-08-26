@@ -5,7 +5,7 @@ const props = defineProps<{
 
 async function share() {
   try {
-    await navigator.share(props.info)
+    navigator.share ? await navigator.share(props.info) : alert('The Web Share API is not supported in this browser')
   } catch (e) {
     alert(e)
   }
